@@ -1,4 +1,4 @@
-package com.example.SpringMobilele.model.entity.enums;
+package com.example.SpringMobilele.models.entity.enums;
 
 public enum Category {
 

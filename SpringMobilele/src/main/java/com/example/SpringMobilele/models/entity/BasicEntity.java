@@ -1,10 +1,10 @@
-package com.example.SpringMobilele.model.entity;
+package com.example.SpringMobilele.models.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @MappedSuperclass
-public class BasicEntity {
+public abstract class BasicEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +13,6 @@ public class BasicEntity {
     @Column(nullable = false)
     private LocalDateTime created;
 
-    @Column(nullable = false)
     private LocalDateTime modified;
 
 

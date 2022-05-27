@@ -9,8 +9,8 @@ spring:
     open-in-view: false
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    username: root
     url: jdbc:mysql://localhost:3306/mobilele?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
 logging:
   level:
     org:
@@ -20,5 +20,3 @@ logging:
         SQL: DEBUG
       nodeValue: WARN
     blog: WARN
-server:
-  port: '8000'

@@ -12,11 +12,11 @@ public class UserEntity extends BasicEntity {
     @Column(name = "age")
     private Integer age;
 
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
+
     @Column(name = "username", nullable = false, unique = true)
     private String username;
-
-    @Column(name = "full_name")
-    private String fullName;
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -25,7 +25,7 @@ public class UserEntity extends BasicEntity {
     private String email;
 
     @ManyToMany
-    private Set<RoleEntity> role;
+    private Set<RoleEntity> roles;
 
     @Enumerated(EnumType.STRING)
     private UserLevel level;
@@ -78,12 +78,12 @@ public class UserEntity extends BasicEntity {
         return this;
     }
 
-    public Set<RoleEntity> getRole() {
-        return role;
+    public Set<RoleEntity> getRoles() {
+        return roles;
     }
 
-    public UserEntity setRole(Set<RoleEntity> role) {
-        this.role = role;
+    public UserEntity setRoles(Set<RoleEntity> roles) {
+        this.roles = roles;
         return this;
     }
 

@@ -30,9 +30,6 @@ public class RouteEntity extends BasicEntity {
     @ManyToMany
     private Set<CategoryEntity> categories;
 
-    @ManyToMany
-    private Set<PictureEntity> pictures;
-
     public RouteEntity() {
     }
 
@@ -96,15 +93,6 @@ public class RouteEntity extends BasicEntity {
 
     public RouteEntity setCategories(Set<CategoryEntity> categories) {
         this.categories = categories;
-        return this;
-    }
-
-    public Set<PictureEntity> getPictures() {
-        return pictures;
-    }
-
-    public RouteEntity setPictures(Set<PictureEntity> pictures) {
-        this.pictures = pictures;
         return this;
     }
 }

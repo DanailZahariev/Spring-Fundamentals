@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class PictureEntity extends BasicEntity {
 
     @Column(nullable = false)
-    private String tittle;
+    private String title;
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String url;
@@ -24,12 +24,12 @@ public class PictureEntity extends BasicEntity {
     public PictureEntity() {
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
-    public PictureEntity setTittle(String tittle) {
-        this.tittle = tittle;
+    public PictureEntity setTitle(String tittle) {
+        this.title = tittle;
         return this;
     }
 

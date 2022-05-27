@@ -2,27 +2,25 @@ package com.example.pathfinder.models.entity;
 
 import com.example.pathfinder.models.entity.enums.RoleName;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
 public class RoleEntity extends BasicEntity {
 
+    @Column(unique = true)
     @Enumerated(EnumType.STRING)
-    private RoleName name;
+    private RoleName role;
 
     public RoleEntity() {
     }
 
-    public RoleName getName() {
-        return name;
+    public RoleName getRole() {
+        return role;
     }
 
-    public RoleEntity setName(RoleName name) {
-        this.name = name;
+    public RoleEntity setRole(RoleName role) {
+        this.role = role;
         return this;
     }
 }

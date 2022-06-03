@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Table(name = "models")
 public class Model extends BasicEntity {
 
-    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
@@ -27,6 +26,8 @@ public class Model extends BasicEntity {
     @ManyToOne
     private Brand brand;
 
+    public Model() {
+    }
 
     public String getName() {
         return name;

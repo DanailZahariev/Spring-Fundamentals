@@ -10,7 +10,6 @@ public abstract class BasicEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private LocalDateTime created;
 
     private LocalDateTime modified;

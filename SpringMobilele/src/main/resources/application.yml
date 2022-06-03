@@ -1,22 +1,36 @@
 spring:
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        format_sql: true
-    hibernate:
-      ddl-auto: update
-    open-in-view: false
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/mobilele?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
-logging:
-  level:
-    org:
-      hibernate:
-        type:
-          descriptor: TRACE
-        SQL: DEBUG
-      nodeValue: WARN
-    blog: WARN
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+#  sql:
+#    init:
+#      mode: always
+
+
+#spring:
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#        format_sql: true
+#    hibernate:
+#      ddl-auto: create-drop
+#  datasource:
+#    driverClassName: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/mobilele?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+#    username: root
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        type:
+#          descriptor: TRACE
+#        SQL: DEBUG
+#      nodeValue: WARN
+#    blog: WARN

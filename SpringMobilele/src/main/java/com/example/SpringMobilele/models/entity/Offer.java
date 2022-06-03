@@ -36,6 +36,9 @@ public class Offer extends BasicEntity {
     @ManyToOne
     private User seller;
 
+    public Offer() {
+    }
+
     public String getDescription() {
         return description;
     }

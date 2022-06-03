@@ -8,7 +8,7 @@ import java.util.List;
 public class User extends BasicEntity {
 
     @Column(nullable = false, unique = true)
-    private String username;
+    private String email;
 
     private String password;
 
@@ -27,13 +27,15 @@ public class User extends BasicEntity {
     @Column(name = "image_url")
     private String imageUrl;
 
-
-    public String getUsername() {
-        return username;
+    public User() {
     }
 
-    public User setUsername(String username) {
-        this.username = username;
+    public String getEmail() {
+        return email;
+    }
+
+    public User setEmail(String email) {
+        this.email = email;
         return this;
     }
 

@@ -1,21 +1,22 @@
 package com.example.SpringMobilele.models.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "brands")
 public class Brand extends BasicEntity {
 
-    @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "brand", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Model> models = new ArrayList<>();
+    @OneToMany(mappedBy = "brand")
+    private List<Model> models;
 
     public String getName() {
         return name;
+    }
+
+    public Brand() {
     }
 
     public Brand setName(String name) {

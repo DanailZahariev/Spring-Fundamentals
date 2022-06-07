@@ -24,7 +24,7 @@ public class UserEntity extends BasicEntity {
     @Column(name = "email")
     private String email;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<RoleEntity> roles;
 
     @Enumerated(EnumType.STRING)

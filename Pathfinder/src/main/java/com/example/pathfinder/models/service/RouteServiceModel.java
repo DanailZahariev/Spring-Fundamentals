@@ -1,45 +1,41 @@
-package com.example.pathfinder.models.entity;
+package com.example.pathfinder.models.service;
 
+import com.example.pathfinder.models.entity.CategoryEntity;
+import com.example.pathfinder.models.entity.PictureEntity;
+import com.example.pathfinder.models.entity.UserEntity;
 import com.example.pathfinder.models.entity.enums.UserLevel;
 
-import javax.persistence.*;
 import java.util.Set;
 
-@Entity
-@Table(name = "routes")
-public class RouteEntity extends BasicEntity {
+public class RouteServiceModel {
 
-    @Column(columnDefinition = "TEXT")
+    private Long id;
     private String description;
-
-    @Column(name = "gpx_coordinates", columnDefinition = "LONGTEXT")
     private String gpxCoordinates;
-
-    @Enumerated(EnumType.STRING)
     private UserLevel level;
-
-    @Column(nullable = false, unique = true)
     private String name;
-
-    @ManyToOne
     private UserEntity author;
-
-    @Column(name = "video_url")
     private String videoUrl;
-
-    @OneToMany(mappedBy = "route", fetch = FetchType.EAGER)
     private Set<PictureEntity> pictures;
-    @ManyToMany(fetch = FetchType.EAGER)
     private Set<CategoryEntity> categories;
 
-    public RouteEntity() {
+    public RouteServiceModel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public RouteServiceModel setId(Long id) {
+        this.id = id;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public RouteEntity setDescription(String description) {
+    public RouteServiceModel setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -48,7 +44,7 @@ public class RouteEntity extends BasicEntity {
         return gpxCoordinates;
     }
 
-    public RouteEntity setGpxCoordinates(String gpxCoordinates) {
+    public RouteServiceModel setGpxCoordinates(String gpxCoordinates) {
         this.gpxCoordinates = gpxCoordinates;
         return this;
     }
@@ -57,7 +53,7 @@ public class RouteEntity extends BasicEntity {
         return level;
     }
 
-    public RouteEntity setLevel(UserLevel level) {
+    public RouteServiceModel setLevel(UserLevel level) {
         this.level = level;
         return this;
     }
@@ -66,7 +62,7 @@ public class RouteEntity extends BasicEntity {
         return name;
     }
 
-    public RouteEntity setName(String name) {
+    public RouteServiceModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -75,7 +71,7 @@ public class RouteEntity extends BasicEntity {
         return author;
     }
 
-    public RouteEntity setAuthor(UserEntity author) {
+    public RouteServiceModel setAuthor(UserEntity author) {
         this.author = author;
         return this;
     }
@@ -84,7 +80,7 @@ public class RouteEntity extends BasicEntity {
         return videoUrl;
     }
 
-    public RouteEntity setVideoUrl(String videoUrl) {
+    public RouteServiceModel setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
         return this;
     }
@@ -93,7 +89,7 @@ public class RouteEntity extends BasicEntity {
         return pictures;
     }
 
-    public RouteEntity setPictures(Set<PictureEntity> pictures) {
+    public RouteServiceModel setPictures(Set<PictureEntity> pictures) {
         this.pictures = pictures;
         return this;
     }
@@ -102,7 +98,7 @@ public class RouteEntity extends BasicEntity {
         return categories;
     }
 
-    public RouteEntity setCategories(Set<CategoryEntity> categories) {
+    public RouteServiceModel setCategories(Set<CategoryEntity> categories) {
         this.categories = categories;
         return this;
     }

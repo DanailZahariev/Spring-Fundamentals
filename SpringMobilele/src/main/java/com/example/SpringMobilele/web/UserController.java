@@ -1,7 +1,6 @@
 package com.example.SpringMobilele.web;
 
 import com.example.SpringMobilele.models.dto.UserLoginDTO;
-import com.example.SpringMobilele.models.dto.UserRegisterDTO;
 import com.example.SpringMobilele.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,19 +31,6 @@ public class UserController {
     @PostMapping("/login")
     public String login(UserLoginDTO userLoginDTO) {
         userService.login(userLoginDTO);
-        return "redirect:/";
-    }
-
-    @GetMapping("/register")
-    public String register() {
-        return "auth-register";
-    }
-
-    @PostMapping("/register")
-    public String register(UserRegisterDTO userRegisterDTO) {
-
-        userService.registerAndLogin(userRegisterDTO);
-
         return "redirect:/";
     }
 }

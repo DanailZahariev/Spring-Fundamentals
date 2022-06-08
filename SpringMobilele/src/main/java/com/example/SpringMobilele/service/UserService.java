@@ -14,11 +14,11 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-    private Logger LOGGER = LoggerFactory.getLogger(UserService.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
-    private UserRepository userRepository;
-    private CurrentUser currentUser;
-    private PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final CurrentUser currentUser;
+    private final PasswordEncoder passwordEncoder;
 
     public UserService(UserRepository userRepository,
                        CurrentUser currentUser,

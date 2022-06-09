@@ -18,24 +18,30 @@
                         <label for="inputUsername" class="col-form-label ">Username</label>
                     </div>
                     <div class="col-auto">
-                        <input type="text"
-                               th:field="*{username}"
-                               required minlength="4" maxlength="20"
+                        <input th:field="*{username}"
+                               th:errorclass="is-invalid"
+                               type="text"
                                id="inputUsername"
                                class="form-control"
                                aria-describedby="usernameHelpInline">
                     </div>
+                    <p class="invalid-feedback errors alert alert-danger">
+                        Username is incorrect!
+                    </p>
                 </div>
                 <div>
                     <div class="col-auto">
                         <label for="inputPassword" class="col-form-label ">Password</label>
                     </div>
                     <div class="col-auto">
-                        <input type="password"
-                               th:field="*{password}"
-                               required minlength="4" maxlength="20"
+                        <input th:field="*{password}"
+                               th:errorclass="is-invalid"
+                               type="password"
                                id="inputPassword" class="form-control"
                                aria-describedby="passwordHelpInline">
+                        <p class="invalid-feedback errors alert alert-danger">
+                            Password is required and should be at least 4 symbols.
+                        </p>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center mt-2">

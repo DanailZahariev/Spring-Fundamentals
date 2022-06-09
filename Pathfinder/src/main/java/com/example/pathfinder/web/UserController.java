@@ -48,13 +48,15 @@ public class UserController {
         if (bindingResult.hasErrors() ||
                 !userRegisterBindingModel.getPassword().equals(userRegisterBindingModel.getConfirmPassword())) {
             redirectAttributes.addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
-                    .addFlashAttribute("org.springframework.validation.BindingResult", userRegisterBindingModel);
+                    .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel", userRegisterBindingModel);
             return "redirect:register";
         }
 
         boolean isNameExist = userService.isNameExist(userRegisterBindingModel.getUsername());
         if (isNameExist) {
-            //todo
+            redirectAttributes.addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel)
+                    .addFlashAttribute("org.springframework.validation.BindingResult.userRegisterBindingModel", userRegisterBindingModel);
+            return "redirect:register";
         }
 
         userService.registerUser(modelMapper.map(userRegisterBindingModel,

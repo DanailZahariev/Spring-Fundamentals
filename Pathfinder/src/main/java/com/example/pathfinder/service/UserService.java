@@ -53,4 +53,8 @@ public class UserService {
     public boolean isNameExist(String username) {
         return userRepository.findByUsername(username).isPresent();
     }
+
+    public UserEntity findCurrentLoggedUser() {
+        return userRepository.findById(currentUser.getId()).orElse(null);
+    }
 }

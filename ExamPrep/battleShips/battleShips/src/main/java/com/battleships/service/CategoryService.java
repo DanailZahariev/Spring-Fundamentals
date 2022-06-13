@@ -1,4 +1,4 @@
-package com.battleships.model.service;
+package com.battleships.service;
 
 import com.battleships.model.entity.Category;
 import com.battleships.model.entity.enums.CategoryEnum;
@@ -34,5 +34,9 @@ public class CategoryService {
             }
             categoryRepository.save(category);
         });
+    }
+
+    public Category findCategory(String category) {
+        return categoryRepository.findByName(CategoryEnum.valueOf(category)).orElse(null);
     }
 }

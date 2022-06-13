@@ -1,6 +1,6 @@
 package com.battleships.init;
 
-import com.battleships.model.service.CategoryService;
+import com.battleships.service.CategoryService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

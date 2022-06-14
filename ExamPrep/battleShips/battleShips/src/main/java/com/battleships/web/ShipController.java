@@ -38,17 +38,10 @@ public class ShipController {
         this.httpSession = httpSession;
     }
 
-
     @GetMapping("/add")
     public String add() {
-
-        if (httpSession.getAttribute("user") != null) {
-            return "ship-add";
-        }
-
-        return "redirect:/";
+        return "ship-add";
     }
-
 
     @PostMapping("/add")
     public String addShip(@Valid ShipAddingBindingModel shipAddingBindingModel, BindingResult bindingResult,
@@ -68,7 +61,7 @@ public class ShipController {
         UserServiceModel currentUser = modelMapper.map(httpSession.getAttribute("user"), UserServiceModel.class);
         serviceModel.setCategory(category);
 
-        shipService.addShip(serviceModel, userService.findByUsername(currentUser.getUsername()) );
+        shipService.addShip(serviceModel, userService.findByUsername(currentUser.getUsername()));
 
         return "redirect:/";
     }

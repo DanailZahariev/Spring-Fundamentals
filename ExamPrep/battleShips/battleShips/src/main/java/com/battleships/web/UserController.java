@@ -34,10 +34,6 @@ public class UserController {
 
     @GetMapping("/register")
     public String register() {
-
-        if (httpSession.getAttribute("user") != null) {
-            return "redirect:home";
-        }
         return "register";
     }
 
@@ -64,7 +60,7 @@ public class UserController {
     public String login(Model model) {
 
         if (httpSession.getAttribute("user") != null) {
-            return "redirect:home";
+            return "redirect:/home";
         }
 
         if (!model.containsAttribute("isNotFound")) {

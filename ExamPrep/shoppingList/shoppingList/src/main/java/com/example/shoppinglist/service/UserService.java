@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -31,5 +32,22 @@ public class UserService {
         User user = modelMapper.map(userServiceModel, User.class);
         user.setPassword(passwordEncoder.encode(userServiceModel.getPassword()));
         userRepository.save(user);
+    }
+
+    public boolean isFreeEmail(String email) {
+        return userRepository.findByEmailIgnoreCase(email).isEmpty();
+    }
+
+    public boolean isFreeUsername(String username) {
+        return userRepository.findByUsernameIgnoreCase(username).isEmpty();
+    }
+
+    public boolean loginUser(UserServiceModel userServiceModel) {
+        Optional<User> optionalUser = userRepository.findByUsername(userServiceModel.getUsername());
+
+        if (optionalUser.isEmpty()) {
+            return false;
+        }
+        return passwordEncoder.matches(userServiceModel.getPassword(), optionalUser.get().getPassword());
     }
 }

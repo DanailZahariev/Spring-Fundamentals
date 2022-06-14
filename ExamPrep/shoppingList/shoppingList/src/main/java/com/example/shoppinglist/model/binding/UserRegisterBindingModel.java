@@ -1,17 +1,22 @@
 package com.example.shoppinglist.model.binding;
 
+import com.example.shoppinglist.model.validation.UniqueEmail;
+import com.example.shoppinglist.model.validation.UniqueUsername;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class UserRegisterBindingModel {
 
-    @NotBlank(message = "Username cannot be empty.")
+    @NotBlank
     @Size(min = 3, max = 20, message = "Username must be between 3 and 20 characters")
+    @UniqueUsername(message = "Username already exist")
     private String username;
 
-    @NotBlank(message = "Email cannot be empty")
+    @NotBlank
     @Email
+    @UniqueEmail(message = "Email already exist")
     private String email;
 
     @NotBlank(message = "Password cannot be empty")

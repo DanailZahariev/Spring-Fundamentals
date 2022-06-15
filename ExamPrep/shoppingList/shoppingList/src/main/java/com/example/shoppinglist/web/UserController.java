@@ -34,6 +34,9 @@ public class UserController {
 
     @GetMapping("/register")
     public String register() {
+        if (httpSession.getAttribute("user") != null) {
+            return "redirect:/";
+        }
         return "register";
     }
 
@@ -88,8 +91,11 @@ public class UserController {
 
     @GetMapping("/logout")
     public String logout() {
-        httpSession.invalidate();
-        return "redirect:/";
+        if (httpSession.getAttribute("user") != null) {
+            httpSession.invalidate();
+            return "redirect:/";
+        }
+        return "index";
     }
 
     @ModelAttribute

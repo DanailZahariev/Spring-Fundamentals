@@ -86,16 +86,16 @@ public class UserController {
         }
 
         UserServiceModel userServiceModel = modelMapper.map(userLoginBindingModel, UserServiceModel.class);
-        boolean loginUser = userService.loginUser(userServiceModel);
+        UserServiceModel loginUser = userService.loginUser(userServiceModel);
 
-        if (!loginUser) {
+        if (loginUser == null) {
             redirectAttributes.addFlashAttribute("userLoginBindingModel", userLoginBindingModel);
             redirectAttributes.addFlashAttribute("isNotFound", true);
 
             return "redirect:login";
         }
 
-        httpSession.setAttribute("user", userLoginBindingModel);
+        httpSession.setAttribute("user", loginUser);
         return "redirect:/";
     }
 

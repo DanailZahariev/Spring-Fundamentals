@@ -40,15 +40,20 @@ public class UserService {
         return userRepository.findByEmailIgnoreCase(email).isEmpty();
     }
 
-    public boolean loginUser(UserServiceModel userServiceModel) {
+    public UserServiceModel loginUser(UserServiceModel userServiceModel) {
 
         Optional<User> loginUser = userRepository.findByEmailIgnoreCase(userServiceModel.getEmail());
 
         if (loginUser.isEmpty()) {
 
-            return false;
+            return null;
         }
 
-        return passwordEncoder.matches(userServiceModel.getPassword(), loginUser.get().getPassword());
+        boolean matches = passwordEncoder.matches(userServiceModel.getPassword(), loginUser.get().getPassword());
+        if (!matches) {
+            return null;
+        }
+
+        return modelMapper.map(loginUser, UserServiceModel.class);
     }
 }

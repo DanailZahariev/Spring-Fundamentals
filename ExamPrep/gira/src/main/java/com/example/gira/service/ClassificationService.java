@@ -29,4 +29,8 @@ public class ClassificationService {
             classificationRepository.save(classification);
         });
     }
+
+    public Classification findClassificationByName(ClassificationName name) {
+        return classificationRepository.findByName(name).orElse(null);
+    }
 }

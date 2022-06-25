@@ -1,40 +1,38 @@
-package com.example.gira.model.entity;
+package com.example.gira.model.entity.view;
 
+import com.example.gira.model.entity.Classification;
+import com.example.gira.model.entity.User;
 import com.example.gira.model.entity.enums.ProgressEnum;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "tasks")
-public class Task extends BasicEntity {
+public class TaskViewModel {
 
-    @Column(nullable = false, unique = true)
+    private Long id;
     private String name;
-
-    @Column(nullable = false, columnDefinition = "TEXT")
     private String description;
-
-    @Enumerated(EnumType.STRING)
     private ProgressEnum progress;
-
-    @Column(name = "due_date", nullable = false)
     private LocalDate dueDate;
-
-    @ManyToOne
     private Classification classification;
-
-    @ManyToOne
     private User user;
 
-    public Task() {
+    public TaskViewModel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public TaskViewModel setId(Long id) {
+        this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public Task setName(String name) {
+    public TaskViewModel setName(String name) {
         this.name = name;
         return this;
     }
@@ -43,7 +41,7 @@ public class Task extends BasicEntity {
         return description;
     }
 
-    public Task setDescription(String description) {
+    public TaskViewModel setDescription(String description) {
         this.description = description;
         return this;
     }
@@ -52,7 +50,7 @@ public class Task extends BasicEntity {
         return progress;
     }
 
-    public Task setProgress(ProgressEnum progress) {
+    public TaskViewModel setProgress(ProgressEnum progress) {
         this.progress = progress;
         return this;
     }
@@ -61,7 +59,7 @@ public class Task extends BasicEntity {
         return dueDate;
     }
 
-    public Task setDueDate(LocalDate dueDate) {
+    public TaskViewModel setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
         return this;
     }
@@ -70,7 +68,7 @@ public class Task extends BasicEntity {
         return classification;
     }
 
-    public Task setClassification(Classification classification) {
+    public TaskViewModel setClassification(Classification classification) {
         this.classification = classification;
         return this;
     }
@@ -79,7 +77,7 @@ public class Task extends BasicEntity {
         return user;
     }
 
-    public Task setUser(User user) {
+    public TaskViewModel setUser(User user) {
         this.user = user;
         return this;
     }
